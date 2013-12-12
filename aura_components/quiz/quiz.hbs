@@ -1,0 +1,83 @@
+
+
+
+{{#if playing}}
+
+  <section id="quiz-intro" data-hull-section="intro" class="screen hidden">
+			<div class="button">
+		    <a href="#" data-hull-action="start" class="sprite btn play">Jouer</a>
+			</div>
+  </section>
+
+  <section id="quiz-question" data-hull-section="questions" class="quiz-{{quiz.description}} screen hidden">
+  	{{#if options.questionTimer}}
+  	<div id="timer" class="timer" data-hull-question-ticker>{{options.questionTimer}}</div>
+  	{{/if}}
+    {{#questions}}
+    <div data-hull-question="{{ref}}" class="question hidden">
+      <div class="name">{{name}}</div>
+      
+      <div class="description"><img src="images/{{../quiz.description}}/{{description}}" alt="" /></div>
+      <ul class="answers">
+        {{#answers}}
+        <li data-hull-action="answer" data-hull-answer-ref="{{ref}}" data-hull-question-ref="{{question_ref}}">
+          <a href="#"><span class="sprite btn checked"></span><span class="text">{{name}}</span></a>
+        </li>
+        {{/answers}}
+      </ul>
+    </div>
+    {{/questions}}
+  </section>
+
+  <section id="quiz-registration" data-hull-section="finished" class="screen hidden">
+    <div data-hull-component="registration"></div>
+  </section>
+
+{{else}}
+
+  {{#badge}}
+  <div id="quiz-result">
+	    {{#if playedEnough}}
+	    <a class="sprite btn replay" href="#" data-hull-action="replay">Replay</a>
+	    {{/if}}
+    
+    	<div class="score">{{score}}/10</div>
+    	<div class="best-score">Meilleur score : {{best_score}}/10</div>
+    
+    	<a href="#" class="sprite btn share-fb" data-hull-action="share" data-hull-provider="facebook">Facebook</a>
+    	<a href="#" class="sprite btn share-tw" data-hull-action="share" data-hull-provider="twitter">Twitter</a>
+    	
+    	<a class="itunes" href="http://itunes.fr/insidellewyndavis" target="_blank"><img  src="images/btn_itunes.png" alt="" /></a>
+    	<div class="bonus">Bonus exclusifs sur <a href="http://itunes.fr/insidellewyndavis"><b>itunes.fr/insidellewyndavis</b></a></div>
+    	<a class="woodbrass" target="_blank" href="http://www.woodbrass.com/"><img  src="images/btn_woodbrass.png" alt="" /></a>
+    
+    
+    	<div class="other-quiz" data-hull-component="other-quiz" data-hull-id="{{achievement_id}}"></div>
+    	<iframe class="trailer" style="position: relative; z-index: 0;" width="300" height="190" src="//www.youtube.com/embed/W_07dtVL6i4?wmode=transparent&rel=0" frameborder="0" allowfullscreen></iframe>
+    	
+    	<div data-hull-component="leaderboard" class="activity" data-hull-id="{{achievement_id}}" data-hull-board="best-score"></div>
+    	<div data-hull-component="leaderboard" class="activity-friends" data-hull-id="{{achievement_id}}" data-hull-board="best-score" data-hull-type="friends_only"></div>
+    	
+    	
+    	
+    	<div id="overlay">
+    	
+    		<div class="page-like">
+    			<div class="inner">
+    				<a href="#" data-hull-action="close">Fermer</a>
+    				<div id="fb-like" class="fb-like" data-href="https://www.facebook.com/InsideLlewynDavis.FR" data-width="85" data-height="25" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    			</div>
+    		</div>
+    		
+    		<div class="page-already">
+    			<div class="inner">
+    				<a href="#" data-hull-action="close">Fermer</a>
+    			</div>
+    		</div>
+    	</div>
+    	
+    	
+  </div>
+  {{/badge}}
+
+{{/if}}

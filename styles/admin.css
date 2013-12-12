@@ -1,0 +1,33 @@
+.navbar {
+  margin-bottom: 0;
+}
+
+.btn.new-quiz {
+  border-radius: 50%;
+}
+
+.container-fluid.main {
+  padding:0;
+  min-height: 100%;
+  display: flex;
+  margin-top: -56px; //navbar height
+}
+.container-fluid.main > .row-fluid {
+  display: flex;
+  padding-top: 56px; //compensate margin-top for .container-fluid.main
+  height: 100%;
+}
+.container-fluid.main > .row-fluid > .panel {
+  padding: 22px;
+}
+.panel.left {
+  overflow: scroll;
+  background-color: #EEE;
+  border-right: 1px solid lightgray;
+}
+
+[data-hull-component="admin/keen/number"] {
+  height: 300px;
+  display: table-cell;
+  vertical-align: middle;
+}

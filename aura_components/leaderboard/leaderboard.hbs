@@ -1,0 +1,29 @@
+
+
+<table border="0">
+	<thead>
+		<tr>{{#if type}}
+		<td colspan="2">Classement Amis</td>
+		{{else}}
+		<td colspan="2">Classement Général</td>
+		{{/if}}
+		</tr>
+	</thead>
+
+  {{#leaders}}
+  <tr>
+    <td class="actor">{{member.name}}</td>
+    <td class="scoring">{{score}}</td>
+  </tr>
+  {{/leaders}}
+  
+  {{#unless leaders}}
+  <tr>
+    <td colspan="2">Aucun classement</td>
+  </tr>
+  {{/unless}}
+</table>
+
+
+
+

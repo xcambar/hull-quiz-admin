@@ -1,0 +1,14 @@
+
+<div id="app">
+	{{#if options.quizId}}
+		<div data-hull-component="quiz" data-hull-id="{{options.quizId}}" data-hull-question-timer="10" data-hull-auto-next="true" data-hull-sample-questions="10" data-hull-auto-start="true"></div>
+	{{else}}
+		<div id="quiz-selector">
+			<ul class="clearfix">
+			{{#quizzes}}
+			<li><a href="#" data-hull-action="selectQuiz" class="sprite btn {{description}}" data-hull-quiz-id="{{id}}">{{name}}</a></li>
+			{{/quizzes}}
+			</ul>
+		</div>
+	{{/if}}
+</div>

@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="span12 text-center">
+    {{#if loggedIn}}
+    <h3 class="text-error">
+      You must be logged in as an administrator to view this page.
+    </h3>
+    <a href="//hullapp.io">Connect</a>
+    {{else}}
+      <div data-hull-component="login/profile@hull"></div>
+    {{/if}}
+  </div>
+</div>
+
