@@ -29,7 +29,7 @@ Hull.component('admin/quiz/new', {
 
   actions: {
     selectQuiz: function(event, action) {
-      var Model = require('backbone').Model;
+      var Model = Hull.require('backbone').Model;
 
       var quiz;
       if (action.data.quizId != null) {
@@ -95,7 +95,7 @@ Hull.component('admin/quiz/new', {
     duplicateQuiz: function(event, action) {
       this.changeForm();
 
-      var Model = require('backbone').Model;
+      var Model = Hull.require('backbone').Model;
 
       var params = this.sandbox.dom.getFormData(this.$form);
       params.name += ' (Duplicated)';
@@ -161,7 +161,7 @@ Hull.component('admin/quiz/new', {
 
   beforeRender: function(data) {
     if (!this.currentQuiz) {
-      var Model = require('backbone').Model;
+      var Model = Hull.require('backbone').Model;
       var quiz;
       if (data.options.quizId) {
         quiz = this.data.achievements.get(data.options.quizId);
